@@ -163,7 +163,7 @@ jobs:
           #########################################################################################
           sudo ./clear_tree
           fakeroot ./build_firmware_modify $TNAME 0
-          sudo mv -f images/*.trx /opt/images/${TNAME}_R6800_${{ steps.current-time.outputs.formattedTime }}.trx
+          sudo mv -f images/*.trx /opt/images/${TNAME}_${{ steps.current-time.outputs.formattedTime }}.trx
           echo "FNAME=$TNAME" >> $GITHUB_ENV
       - name: Organize files
         id: organize
