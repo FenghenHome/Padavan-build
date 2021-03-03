@@ -45,6 +45,7 @@ jobs:
           mkdir -p /opt/images/
       - name: Recovery SSP bin files download from remote
         run: |
+          cp -rf R6800/* /opt/rt-n56u/trunk
           #cp -f ssp/Makefile /opt/rt-n56u/trunk/user/shadowsocks
           #cp -f ssp/shadowsocks.sh /opt/rt-n56u/trunk/user/shadowsocks/scripts
           #cp -f ssp/defaults.c /opt/rt-n56u/trunk/user/shared
