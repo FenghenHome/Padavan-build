@@ -43,13 +43,15 @@ jobs:
           cd /opt/rt-n56u/toolchain-mipsel
           sh dl_toolchain.sh
           mkdir -p /opt/images/
-      - name: Recovery SSP bin files download from remote
+      - name: Patch R6800
         run: |
           cp -f R6800/0001-Add-R6800.patch /opt/rt-n56u
           cd /opt/rt-n56u
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           git am --signoff < 0001-Add-R6800.patch
+      - name: Recovery SSP bin files download from remote
+        run: |
           #cp -f ssp/Makefile /opt/rt-n56u/trunk/user/shadowsocks
           #cp -f ssp/shadowsocks.sh /opt/rt-n56u/trunk/user/shadowsocks/scripts
           #cp -f ssp/defaults.c /opt/rt-n56u/trunk/user/shared
