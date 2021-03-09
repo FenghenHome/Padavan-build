@@ -87,6 +87,7 @@ jobs:
           sed -i '/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT/d' .config #删除配置项SOFTETHERVPN
           sed -i '/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD/d' .config #删除配置项SOFTETHERVPN        
           sed -i '/CONFIG_FIRMWARE_INCLUDE_OPENVPN/d' .config
+          sed -i '/CONFIG_FIRMWARE_WEBUI_HIDE_VPN/d' .config
           sed -i '/CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS/d' .config #删除配置项SS plus+
           sed -i '/CONFIG_FIRMWARE_INCLUDE_SSSERVER/d' .config #删除配置项SS server
           sed -i '/CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER/d' .config #删除配置项DNSFORWARDER
@@ -118,8 +119,9 @@ jobs:
           echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=n" >> .config #SOFTETHERVPN
           echo "CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=n" >> .config #SOFTETHERVPN
           echo "CONFIG_FIRMWARE_INCLUDE_OPENVPN=n" >> .config
+          echo "CONFIG_FIRMWARE_WEBUI_HIDE_VPN=y" >> .config
           echo "CONFIG_FIRMWARE_INCLUDE_SFE=y" >> .config #集成SFE加速
-          echo "CONFIG_FIRMWARE_INCLUDE_VLMCSD=y" >> .config
+          echo "CONFIG_FIRMWARE_INCLUDE_VLMCSD=n" >> .config
           #
           echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config #SS plus+
           echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #集成v2ray执行文件（3.8M左右)，如果不集成，会从网上下载下来执行，不影响正常使用
