@@ -49,6 +49,9 @@ jobs:
           cd /opt/rt-n56u/toolchain-mipsel
           sh dl_toolchain.sh
           mkdir -p /opt/images/
+      - name: Set Go
+        run: |
+          sh scripts/go.sh
       - name: Patch R6800
         run: |
           cp -f R6800/0001-Add-R6800.patch /opt/rt-n56u
