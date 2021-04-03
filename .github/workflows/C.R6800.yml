@@ -47,11 +47,11 @@ jobs:
           mkdir -p /opt/images/
       - name: Patch R6800
         run: |
-          cp -f R6800/0001-Add-R6800.patch /opt/rt-n56u
+          cp -f R6800/0001-Add-NETGEAR.patch /opt/rt-n56u
           cd /opt/rt-n56u
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git am --signoff < 0001-Add-R6800.patch
+          git am --signoff < 0001-Add-NETGEAR.patch
       - name: Recovery SSP bin files download from remote
         run: |
           #cp -f ssp/Makefile /opt/rt-n56u/trunk/user/shadowsocks
@@ -78,7 +78,7 @@ jobs:
 
       - name: Build Firmware
         env:
-          TNAME: R6800
+          TNAME: NETGEAR
         run: |
           cd /opt/rt-n56u/trunk
           if [ ! -f configs/templates/$TNAME.config ] ; then

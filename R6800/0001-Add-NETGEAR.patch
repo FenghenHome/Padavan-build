@@ -1,34 +1,34 @@
 From 73fbb0ea8d60f896aba78a9d9405a38d281bf665 Mon Sep 17 00:00:00 2001
 From: FenghenHome <s.sunfeihu@gmail.com>
 Date: Wed, 3 Mar 2021 21:06:53 +0800
-Subject: [PATCH] Add R6800
+Subject: [PATCH] Add NETGEAR
 
 Signed-off-by: FenghenHome <s.sunfeihu@gmail.com>
 ---
- .../boards/R6800/SingleSKU_mt7615e-sku-bf.dat      |   71 +
- .../configs/boards/R6800/SingleSKU_mt7615e-sku.dat |   64 +
- trunk/configs/boards/R6800/board.h                 |   32 +
- trunk/configs/boards/R6800/board.mk                |    8 +
- trunk/configs/boards/R6800/kernel-3.4.x-5.0.config | 2127 ++++++++++++++++++++
- trunk/configs/boards/R6800/l1profile.dat           |   24 +
- trunk/configs/templates/R6800.config               |  269 +++
+ .../boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat      |   71 +
+ .../configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat |   64 +
+ trunk/configs/boards/NETGEAR/board.h                 |   32 +
+ trunk/configs/boards/NETGEAR/board.mk                |    8 +
+ trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config | 2127 ++++++++++++++++++++
+ trunk/configs/boards/NETGEAR/l1profile.dat           |   24 +
+ trunk/configs/templates/NETGEAR.config               |  269 +++
  trunk/linux-3.4.x/arch/mips/rt2880/cmdline.c       |    4 +
  trunk/linux-3.4.x/drivers/mtd/ralink/Kconfig       |   15 +
  .../drivers/mtd/ralink/ralink-nand-map.h           |   24 +-
  10 files changed, 2636 insertions(+), 2 deletions(-)
- create mode 100644 trunk/configs/boards/R6800/SingleSKU_mt7615e-sku-bf.dat
- create mode 100644 trunk/configs/boards/R6800/SingleSKU_mt7615e-sku.dat
- create mode 100644 trunk/configs/boards/R6800/board.h
- create mode 100644 trunk/configs/boards/R6800/board.mk
- create mode 100644 trunk/configs/boards/R6800/kernel-3.4.x-5.0.config
- create mode 100644 trunk/configs/boards/R6800/l1profile.dat
- create mode 100644 trunk/configs/templates/R6800.config
+ create mode 100644 trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat
+ create mode 100644 trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat
+ create mode 100644 trunk/configs/boards/NETGEAR/board.h
+ create mode 100644 trunk/configs/boards/NETGEAR/board.mk
+ create mode 100644 trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config
+ create mode 100644 trunk/configs/boards/NETGEAR/l1profile.dat
+ create mode 100644 trunk/configs/templates/NETGEAR.config
 
-diff --git a/trunk/configs/boards/R6800/SingleSKU_mt7615e-sku-bf.dat b/trunk/configs/boards/R6800/SingleSKU_mt7615e-sku-bf.dat
+diff --git a/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat b/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat
 new file mode 100644
 index 0000000..e32f7ef
 --- /dev/null
-+++ b/trunk/configs/boards/R6800/SingleSKU_mt7615e-sku-bf.dat
++++ b/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat
 @@ -0,0 +1,71 @@
 +# Single SKU Max Power Table                                                   
 +# 2.4G Channel                                                   
@@ -101,11 +101,11 @@ index 0000000..e32f7ef
 +                                                   
 +                                                   
 +                                                   
-diff --git a/trunk/configs/boards/R6800/SingleSKU_mt7615e-sku.dat b/trunk/configs/boards/R6800/SingleSKU_mt7615e-sku.dat
+diff --git a/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat b/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat
 new file mode 100644
 index 0000000..def4e2b
 --- /dev/null
-+++ b/trunk/configs/boards/R6800/SingleSKU_mt7615e-sku.dat
++++ b/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat
 @@ -0,0 +1,64 @@
 +# Single SKU Max Power Table                                                   
 +# 2.4G Channel CCK    OFDM        VHT20          VHT40          Txstream_Delta                  
@@ -171,16 +171,16 @@ index 0000000..def4e2b
 +Ch173 24  23  22  21 20 24 23  22  20  19 18 18 24 23  22  20  19 18 18 24 23  22  20  19 18 18 24 23  22  20  19 18 18 0 0 0
 +Ch177 24  23  22  21 20 24 23  22  20  19 18 18 24 23  22  20  19 18 18 24 23  22  20  19 18 18 24 23  22  20  19 18 18 0 0 0
 +Ch181 24  23  22  21 20 24 23  22  20  19 18 22 24 23  22  20  19 18 18 24 23  22  20  19 18 18 24 23  22  20  19 18 18 0 0 0
-diff --git a/trunk/configs/boards/R6800/board.h b/trunk/configs/boards/R6800/board.h
+diff --git a/trunk/configs/boards/NETGEAR/board.h b/trunk/configs/boards/NETGEAR/board.h
 new file mode 100644
 index 0000000..cdea5cb
 --- /dev/null
-+++ b/trunk/configs/boards/R6800/board.h
++++ b/trunk/configs/boards/NETGEAR/board.h
 @@ -0,0 +1,32 @@
 +/* NETGEAR-BZV */
 +
-+#define BOARD_PID		"R6800"
-+#define BOARD_NAME		"R6800"
++#define BOARD_PID		"NETGEAR"
++#define BOARD_NAME		"NETGEAR"
 +#define BOARD_DESC		"NETGEAR Dual MT7615 Wireless Router"
 +#define BOARD_VENDOR_NAME	"NETGEAR Co., Ltd."
 +#define BOARD_VENDOR_URL	"http://www.netgear.com/"
@@ -209,25 +209,25 @@ index 0000000..cdea5cb
 +#define BOARD_HAS_EPHY_W1000	1
 +#define BOARD_NUM_UPHY_USB3	1
 +
-diff --git a/trunk/configs/boards/R6800/board.mk b/trunk/configs/boards/R6800/board.mk
+diff --git a/trunk/configs/boards/NETGEAR/board.mk b/trunk/configs/boards/NETGEAR/board.mk
 new file mode 100644
 index 0000000..ddbfef0
 --- /dev/null
-+++ b/trunk/configs/boards/R6800/board.mk
++++ b/trunk/configs/boards/NETGEAR/board.mk
 @@ -0,0 +1,8 @@
 +##################################################################
 +# Board PID # Board Name       # PRODUCT # Note
 +##################################################################
-+# R6800 # R6800   # MT7621  #
++# NETGEAR # NETGEAR   # MT7621  #
 +##################################################################
 +
-+CFLAGS += -DBOARD_R6800
++CFLAGS += -DBOARD_NETGEAR
 +BOARD_NUM_USB_PORTS=2
-diff --git a/trunk/configs/boards/R6800/kernel-3.4.x-5.0.config b/trunk/configs/boards/R6800/kernel-3.4.x-5.0.config
+diff --git a/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config b/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config
 new file mode 100644
 index 0000000..bef2f2f
 --- /dev/null
-+++ b/trunk/configs/boards/R6800/kernel-3.4.x-5.0.config
++++ b/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config
 @@ -0,0 +1,2127 @@
 +#
 +# Automatically generated file; DO NOT EDIT.
@@ -2356,11 +2356,11 @@ index 0000000..bef2f2f
 +# Ralink Peripheral Devices
 +#
 +CONFIG_MTK_XHCI=y
-diff --git a/trunk/configs/boards/R6800/l1profile.dat b/trunk/configs/boards/R6800/l1profile.dat
+diff --git a/trunk/configs/boards/NETGEAR/l1profile.dat b/trunk/configs/boards/NETGEAR/l1profile.dat
 new file mode 100644
 index 0000000..7e5d4aa
 --- /dev/null
-+++ b/trunk/configs/boards/R6800/l1profile.dat
++++ b/trunk/configs/boards/NETGEAR/l1profile.dat
 @@ -0,0 +1,24 @@
 +Default
 +INDEX0=MT7615
@@ -2386,18 +2386,18 @@ index 0000000..7e5d4aa
 +INDEX1_single_sku_path=/etc_ro/Wireless/SingleSKU_mt7615e-sku.dat
 +INDEX1_bf_sku_path=/etc_ro/Wireless/SingleSKU_mt7615e-sku-bf.dat
 +
-diff --git a/trunk/configs/templates/R6800.config b/trunk/configs/templates/R6800.config
+diff --git a/trunk/configs/templates/NETGEAR.config b/trunk/configs/templates/NETGEAR.config
 new file mode 100644
 index 0000000..8aa9bfa
 --- /dev/null
-+++ b/trunk/configs/templates/R6800.config
++++ b/trunk/configs/templates/NETGEAR.config
 @@ -0,0 +1,269 @@
 +### Target Vendor/Product (support only Ralink RT3883/MT7620/MT7621/MT7628)
 +CONFIG_VENDOR=Ralink
 +CONFIG_PRODUCT=MT7621
 +
 +### Target ProductID (board select, max 12 symbols)
-+CONFIG_FIRMWARE_PRODUCT_ID="R6800"
++CONFIG_FIRMWARE_PRODUCT_ID="NETGEAR"
 +
 +### Linux kernel and toolchain
 +CONFIG_FIRMWARE_INCLUDE_SFE=y
