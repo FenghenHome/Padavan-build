@@ -1,21 +1,21 @@
-From 73fbb0ea8d60f896aba78a9d9405a38d281bf665 Mon Sep 17 00:00:00 2001
+From e0984e187de165db6a1644fa0b2f32066b1f6854 Mon Sep 17 00:00:00 2001
 From: FenghenHome <s.sunfeihu@gmail.com>
 Date: Wed, 3 Mar 2021 21:06:53 +0800
 Subject: [PATCH] Add NETGEAR
 
 Signed-off-by: FenghenHome <s.sunfeihu@gmail.com>
 ---
- .../boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat      |   71 +
- .../configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat |   64 +
- trunk/configs/boards/NETGEAR/board.h                 |   32 +
- trunk/configs/boards/NETGEAR/board.mk                |    8 +
- trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config | 2127 ++++++++++++++++++++
- trunk/configs/boards/NETGEAR/l1profile.dat           |   24 +
- trunk/configs/templates/NETGEAR.config               |  269 +++
+ .../boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat    |   71 +
+ .../boards/NETGEAR/SingleSKU_mt7615e-sku.dat       |   64 +
+ trunk/configs/boards/NETGEAR/board.h               |   34 +
+ trunk/configs/boards/NETGEAR/board.mk              |    8 +
+ .../configs/boards/NETGEAR/kernel-3.4.x-5.0.config | 2127 ++++++++++++++++++++
+ trunk/configs/boards/NETGEAR/l1profile.dat         |   24 +
+ trunk/configs/templates/NETGEAR.config             |  269 +++
  trunk/linux-3.4.x/arch/mips/rt2880/cmdline.c       |    4 +
  trunk/linux-3.4.x/drivers/mtd/ralink/Kconfig       |   15 +
  .../drivers/mtd/ralink/ralink-nand-map.h           |   24 +-
- 10 files changed, 2636 insertions(+), 2 deletions(-)
+ 10 files changed, 2638 insertions(+), 2 deletions(-)
  create mode 100644 trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat
  create mode 100644 trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat
  create mode 100644 trunk/configs/boards/NETGEAR/board.h
@@ -26,7 +26,7 @@ Signed-off-by: FenghenHome <s.sunfeihu@gmail.com>
 
 diff --git a/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat b/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat
 new file mode 100644
-index 0000000..e32f7ef
+index 0000000..f35e616
 --- /dev/null
 +++ b/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku-bf.dat
 @@ -0,0 +1,71 @@
@@ -103,7 +103,7 @@ index 0000000..e32f7ef
 +                                                   
 diff --git a/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat b/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat
 new file mode 100644
-index 0000000..def4e2b
+index 0000000..3923bd6
 --- /dev/null
 +++ b/trunk/configs/boards/NETGEAR/SingleSKU_mt7615e-sku.dat
 @@ -0,0 +1,64 @@
@@ -173,10 +173,10 @@ index 0000000..def4e2b
 +Ch181 24  23  22  21 20 24 23  22  20  19 18 22 24 23  22  20  19 18 18 24 23  22  20  19 18 18 24 23  22  20  19 18 18 0 0 0
 diff --git a/trunk/configs/boards/NETGEAR/board.h b/trunk/configs/boards/NETGEAR/board.h
 new file mode 100644
-index 0000000..cdea5cb
+index 0000000..3126ad5
 --- /dev/null
 +++ b/trunk/configs/boards/NETGEAR/board.h
-@@ -0,0 +1,32 @@
+@@ -0,0 +1,34 @@
 +/* NETGEAR-BZV */
 +
 +#define BOARD_PID		"NETGEAR"
@@ -190,8 +190,10 @@ index 0000000..cdea5cb
 +#define BOARD_GPIO_BTN_RESET	12
 +#define BOARD_GPIO_BTN_WPS	18
 +#undef  BOARD_GPIO_LED_ALL
-+#define BOARD_GPIO_LED_WIFI	14
-+#define BOARD_GPIO_LED_POWER	0	/* 0: orange, 1: white */
++#undef  BOARD_GPIO_LED_WIFI
++#define BOARD_GPIO_LED_SW2G   4
++#define BOARD_GPIO_LED_SW5G   5
++#define BOARD_GPIO_LED_POWER	1	/* 0: orange, 1: white */
 +#define BOARD_GPIO_LED_LAN	9	/* 0: orange, 1: white */
 +#define BOARD_GPIO_LED_WAN	3	/* 0: orange, 1: white */
 +#define BOARD_GPIO_LED_USB	7
@@ -211,7 +213,7 @@ index 0000000..cdea5cb
 +
 diff --git a/trunk/configs/boards/NETGEAR/board.mk b/trunk/configs/boards/NETGEAR/board.mk
 new file mode 100644
-index 0000000..ddbfef0
+index 0000000..dfdd5a9
 --- /dev/null
 +++ b/trunk/configs/boards/NETGEAR/board.mk
 @@ -0,0 +1,8 @@
@@ -2388,7 +2390,7 @@ index 0000000..7e5d4aa
 +
 diff --git a/trunk/configs/templates/NETGEAR.config b/trunk/configs/templates/NETGEAR.config
 new file mode 100644
-index 0000000..8aa9bfa
+index 0000000..153d98b
 --- /dev/null
 +++ b/trunk/configs/templates/NETGEAR.config
 @@ -0,0 +1,269 @@
