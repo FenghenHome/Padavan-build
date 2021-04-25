@@ -54,7 +54,7 @@ jobs:
           cd /opt/rt-n56u
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          git am --signoff < 0001-Add-NETGEAR.patch
+          git am --signoff < 0001-mod.patch
       - name: Recovery SSP bin files download from remote
         run: |
           #cp -f ssp/Makefile /opt/rt-n56u/trunk/user/shadowsocks
