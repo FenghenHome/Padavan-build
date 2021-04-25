@@ -50,7 +50,7 @@ jobs:
           sh scripts/go.sh
       - name: Patch R6800
         run: |
-          cp -f R6800/0001-Add-NETGEAR.patch /opt/rt-n56u
+          cp -f R6800/0001-mod.patch /opt/rt-n56u
           cd /opt/rt-n56u
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
