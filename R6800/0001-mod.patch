@@ -1,21 +1,21 @@
-From acd42dbefd58419f4886ccc62c326eab8994ad3e Mon Sep 17 00:00:00 2001
+From b10ca3f2acbc1edc148bfe8dcae429bd28e5bd49 Mon Sep 17 00:00:00 2001
 From: FenghenHome <s.sunfeihu@gmail.com>
-Date: Sun, 25 Apr 2021 20:32:02 +0800
+Date: Mon, 26 Apr 2021 22:12:31 +0800
 Subject: [PATCH] mod
 
 Signed-off-by: FenghenHome <s.sunfeihu@gmail.com>
 ---
  trunk/configs/boards/NETGEAR-BZV/board.h           |   32 -
  trunk/configs/boards/NETGEAR-BZV/board.mk          |    8 -
- .../boards/NETGEAR-BZV/kernel-3.4.x-5.0.config     | 2126 --------------------
+ .../boards/NETGEAR-BZV/kernel-3.4.x-5.0.config     | 2127 --------------------
  trunk/configs/boards/NETGEAR-BZV/l1profile.dat     |   24 -
  trunk/configs/boards/NETGEAR/board.h               |   32 +
  trunk/configs/boards/NETGEAR/board.mk              |    8 +
- .../configs/boards/NETGEAR/kernel-3.4.x-5.0.config | 2126 ++++++++++++++++++++
+ .../configs/boards/NETGEAR/kernel-3.4.x-5.0.config | 2127 ++++++++++++++++++++
  trunk/configs/boards/NETGEAR/l1profile.dat         |   24 +
- trunk/configs/templates/NETGEAR-BZV.config         |  270 ---
- trunk/configs/templates/NETGEAR.config             |  270 +++
- 10 files changed, 2460 insertions(+), 2460 deletions(-)
+ trunk/configs/templates/NETGEAR-BZV.config         |  264 ---
+ trunk/configs/templates/NETGEAR.config             |  264 +++
+ 10 files changed, 2455 insertions(+), 2455 deletions(-)
  delete mode 100644 trunk/configs/boards/NETGEAR-BZV/board.h
  delete mode 100644 trunk/configs/boards/NETGEAR-BZV/board.mk
  delete mode 100644 trunk/configs/boards/NETGEAR-BZV/kernel-3.4.x-5.0.config
@@ -81,10 +81,10 @@ index bfb5a13..0000000
 -BOARD_NUM_USB_PORTS=2
 diff --git a/trunk/configs/boards/NETGEAR-BZV/kernel-3.4.x-5.0.config b/trunk/configs/boards/NETGEAR-BZV/kernel-3.4.x-5.0.config
 deleted file mode 100644
-index 1078f0b..0000000
+index 426ab02..0000000
 --- a/trunk/configs/boards/NETGEAR-BZV/kernel-3.4.x-5.0.config
 +++ /dev/null
-@@ -1,2126 +0,0 @@
+@@ -1,2127 +0,0 @@
 -#
 -# Automatically generated file; DO NOT EDIT.
 -# Linux/mips 3.4.113 Kernel Configuration
@@ -956,15 +956,16 @@ index 1078f0b..0000000
 -CONFIG_ROOTFS_IN_FLASH_NO_PADDING=y
 -# CONFIG_MTD_NAND_USE_UBI_PART is not set
 -CONFIG_MTD_NETGEAR_LAYOUT=y
+-# CONFIG_MTD_NAND_USE_XIAOMI_PART is not set
 -CONFIG_MTD_FACTORY_OFFSET=0x4600000
 -CONFIG_MTD_RWFS_OFFSET=0x5400000
 -CONFIG_MTD_CONFIG_PART_BELOW=y
 -CONFIG_MTD_BOOTLOADER_PART_SIZ=0x0100000
 -CONFIG_MTD_BOOTENV_PART_SIZ=0x0100000
--CONFIG_MTD_FIRMWARE_PART_SIZ=0x2C00000
 -CONFIG_MTD_CONFIG_PART_SIZ=0x0200000
--CONFIG_MTD_STORE_PART_SIZ=0x1000000
 -CONFIG_MTD_FACTORY_PART_SIZ=0x0200000
+-CONFIG_MTD_FIRMWARE_PART_SIZ=0x2C00000
+-CONFIG_MTD_STORE_PART_SIZ=0x1000000
 -# CONFIG_PARPORT is not set
 -CONFIG_BLK_DEV=y
 -# CONFIG_BLK_DEV_PCIESSD_MTIP32XX is not set
@@ -1680,8 +1681,8 @@ index 1078f0b..0000000
 -# CONFIG_EFS_FS is not set
 -# CONFIG_JFFS2_FS is not set
 -CONFIG_UBIFS_FS=m
--# CONFIG_UBIFS_FS_XATTR is not set
--# CONFIG_UBIFS_FS_ADVANCED_COMPR is not set
+-CONFIG_UBIFS_FS_XATTR=y
+-CONFIG_UBIFS_FS_ADVANCED_COMPR=y
 -CONFIG_UBIFS_FS_LZO=y
 -CONFIG_UBIFS_FS_ZLIB=y
 -# CONFIG_UBIFS_FS_DEBUG is not set
@@ -1883,9 +1884,9 @@ index 1078f0b..0000000
 -#
 -# Compression
 -#
--# CONFIG_CRYPTO_DEFLATE is not set
+-CONFIG_CRYPTO_DEFLATE=m
 -# CONFIG_CRYPTO_ZLIB is not set
--# CONFIG_CRYPTO_LZO is not set
+-CONFIG_CRYPTO_LZO=m
 -
 -#
 -# Random Number Generation
@@ -1918,8 +1919,8 @@ index 1078f0b..0000000
 -# CONFIG_CRC8 is not set
 -CONFIG_ZLIB_INFLATE=m
 -CONFIG_ZLIB_DEFLATE=m
--# CONFIG_LZO_COMPRESS is not set
--# CONFIG_LZO_DECOMPRESS is not set
+-CONFIG_LZO_COMPRESS=m
+-CONFIG_LZO_DECOMPRESS=m
 -CONFIG_XZ_DEC=y
 -# CONFIG_XZ_DEC_X86 is not set
 -# CONFIG_XZ_DEC_POWERPC is not set
@@ -2295,10 +2296,10 @@ index 0000000..dfdd5a9
 +BOARD_NUM_USB_PORTS=2
 diff --git a/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config b/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config
 new file mode 100644
-index 0000000..1078f0b
+index 0000000..426ab02
 --- /dev/null
 +++ b/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config
-@@ -0,0 +1,2126 @@
+@@ -0,0 +1,2127 @@
 +#
 +# Automatically generated file; DO NOT EDIT.
 +# Linux/mips 3.4.113 Kernel Configuration
@@ -3170,15 +3171,16 @@ index 0000000..1078f0b
 +CONFIG_ROOTFS_IN_FLASH_NO_PADDING=y
 +# CONFIG_MTD_NAND_USE_UBI_PART is not set
 +CONFIG_MTD_NETGEAR_LAYOUT=y
++# CONFIG_MTD_NAND_USE_XIAOMI_PART is not set
 +CONFIG_MTD_FACTORY_OFFSET=0x4600000
 +CONFIG_MTD_RWFS_OFFSET=0x5400000
 +CONFIG_MTD_CONFIG_PART_BELOW=y
 +CONFIG_MTD_BOOTLOADER_PART_SIZ=0x0100000
 +CONFIG_MTD_BOOTENV_PART_SIZ=0x0100000
-+CONFIG_MTD_FIRMWARE_PART_SIZ=0x2C00000
 +CONFIG_MTD_CONFIG_PART_SIZ=0x0200000
-+CONFIG_MTD_STORE_PART_SIZ=0x1000000
 +CONFIG_MTD_FACTORY_PART_SIZ=0x0200000
++CONFIG_MTD_FIRMWARE_PART_SIZ=0x2C00000
++CONFIG_MTD_STORE_PART_SIZ=0x1000000
 +# CONFIG_PARPORT is not set
 +CONFIG_BLK_DEV=y
 +# CONFIG_BLK_DEV_PCIESSD_MTIP32XX is not set
@@ -3894,8 +3896,8 @@ index 0000000..1078f0b
 +# CONFIG_EFS_FS is not set
 +# CONFIG_JFFS2_FS is not set
 +CONFIG_UBIFS_FS=m
-+# CONFIG_UBIFS_FS_XATTR is not set
-+# CONFIG_UBIFS_FS_ADVANCED_COMPR is not set
++CONFIG_UBIFS_FS_XATTR=y
++CONFIG_UBIFS_FS_ADVANCED_COMPR=y
 +CONFIG_UBIFS_FS_LZO=y
 +CONFIG_UBIFS_FS_ZLIB=y
 +# CONFIG_UBIFS_FS_DEBUG is not set
@@ -4097,9 +4099,9 @@ index 0000000..1078f0b
 +#
 +# Compression
 +#
-+# CONFIG_CRYPTO_DEFLATE is not set
++CONFIG_CRYPTO_DEFLATE=m
 +# CONFIG_CRYPTO_ZLIB is not set
-+# CONFIG_CRYPTO_LZO is not set
++CONFIG_CRYPTO_LZO=m
 +
 +#
 +# Random Number Generation
@@ -4132,8 +4134,8 @@ index 0000000..1078f0b
 +# CONFIG_CRC8 is not set
 +CONFIG_ZLIB_INFLATE=m
 +CONFIG_ZLIB_DEFLATE=m
-+# CONFIG_LZO_COMPRESS is not set
-+# CONFIG_LZO_DECOMPRESS is not set
++CONFIG_LZO_COMPRESS=m
++CONFIG_LZO_DECOMPRESS=m
 +CONFIG_XZ_DEC=y
 +# CONFIG_XZ_DEC_X86 is not set
 +# CONFIG_XZ_DEC_POWERPC is not set
@@ -4457,10 +4459,10 @@ index 0000000..7e5d4aa
 +
 diff --git a/trunk/configs/templates/NETGEAR-BZV.config b/trunk/configs/templates/NETGEAR-BZV.config
 deleted file mode 100644
-index 81f08c5..0000000
+index 350aa1f..0000000
 --- a/trunk/configs/templates/NETGEAR-BZV.config
 +++ /dev/null
-@@ -1,270 +0,0 @@
+@@ -1,264 +0,0 @@
 -### Target Vendor/Product (support only Ralink RT3883/MT7620/MT7621/MT7628)
 -CONFIG_VENDOR=Ralink
 -CONFIG_PRODUCT=MT7621
@@ -4689,17 +4691,11 @@ index 81f08c5..0000000
 -
 -CONFIG_FIRMWARE_INCLUDE_NAPT66=y
 -
--CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y
--
--CONFIG_FIRMWARE_INCLUDE_SSSERVER=y
--
 -CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=n
 -
 -CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=n
 -
 -CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=n
--
--CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=y
 -
 -CONFIG_FIRMWARE_INCLUDE_VLMCSD=y
 -
@@ -4733,10 +4729,10 @@ index 81f08c5..0000000
 -
 diff --git a/trunk/configs/templates/NETGEAR.config b/trunk/configs/templates/NETGEAR.config
 new file mode 100644
-index 0000000..b0ec5f8
+index 0000000..da34ee5
 --- /dev/null
 +++ b/trunk/configs/templates/NETGEAR.config
-@@ -0,0 +1,270 @@
+@@ -0,0 +1,264 @@
 +### Target Vendor/Product (support only Ralink RT3883/MT7620/MT7621/MT7628)
 +CONFIG_VENDOR=Ralink
 +CONFIG_PRODUCT=MT7621
@@ -4965,17 +4961,11 @@ index 0000000..b0ec5f8
 +
 +CONFIG_FIRMWARE_INCLUDE_NAPT66=y
 +
-+CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y
-+
-+CONFIG_FIRMWARE_INCLUDE_SSSERVER=y
-+
 +CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER=n
 +
 +CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT=n
 +
 +CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD=n
-+
-+CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=y
 +
 +CONFIG_FIRMWARE_INCLUDE_VLMCSD=y
 +
