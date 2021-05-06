@@ -1,21 +1,21 @@
-From b10ca3f2acbc1edc148bfe8dcae429bd28e5bd49 Mon Sep 17 00:00:00 2001
+From 8b5892053ecb9706174aa9302d761cdd81066915 Mon Sep 17 00:00:00 2001
 From: FenghenHome <s.sunfeihu@gmail.com>
-Date: Mon, 26 Apr 2021 22:12:31 +0800
+Date: Thu, 6 May 2021 17:39:13 +0800
 Subject: [PATCH] mod
 
 Signed-off-by: FenghenHome <s.sunfeihu@gmail.com>
 ---
  trunk/configs/boards/NETGEAR-BZV/board.h           |   32 -
  trunk/configs/boards/NETGEAR-BZV/board.mk          |    8 -
- .../boards/NETGEAR-BZV/kernel-3.4.x-5.0.config     | 2127 --------------------
+ .../boards/NETGEAR-BZV/kernel-3.4.x-5.0.config     | 2134 --------------------
  trunk/configs/boards/NETGEAR-BZV/l1profile.dat     |   24 -
  trunk/configs/boards/NETGEAR/board.h               |   32 +
  trunk/configs/boards/NETGEAR/board.mk              |    8 +
- .../configs/boards/NETGEAR/kernel-3.4.x-5.0.config | 2127 ++++++++++++++++++++
+ .../configs/boards/NETGEAR/kernel-3.4.x-5.0.config | 2134 ++++++++++++++++++++
  trunk/configs/boards/NETGEAR/l1profile.dat         |   24 +
- trunk/configs/templates/NETGEAR-BZV.config         |  264 ---
- trunk/configs/templates/NETGEAR.config             |  264 +++
- 10 files changed, 2455 insertions(+), 2455 deletions(-)
+ trunk/configs/templates/NETGEAR-BZV.config         |  261 ---
+ trunk/configs/templates/NETGEAR.config             |  261 +++
+ 10 files changed, 2459 insertions(+), 2459 deletions(-)
  delete mode 100644 trunk/configs/boards/NETGEAR-BZV/board.h
  delete mode 100644 trunk/configs/boards/NETGEAR-BZV/board.mk
  delete mode 100644 trunk/configs/boards/NETGEAR-BZV/kernel-3.4.x-5.0.config
@@ -81,10 +81,10 @@ index bfb5a13..0000000
 -BOARD_NUM_USB_PORTS=2
 diff --git a/trunk/configs/boards/NETGEAR-BZV/kernel-3.4.x-5.0.config b/trunk/configs/boards/NETGEAR-BZV/kernel-3.4.x-5.0.config
 deleted file mode 100644
-index 426ab02..0000000
+index baf1b41..0000000
 --- a/trunk/configs/boards/NETGEAR-BZV/kernel-3.4.x-5.0.config
 +++ /dev/null
-@@ -1,2127 +0,0 @@
+@@ -1,2134 +0,0 @@
 -#
 -# Automatically generated file; DO NOT EDIT.
 -# Linux/mips 3.4.113 Kernel Configuration
@@ -2020,6 +2020,7 @@ index 426ab02..0000000
 -# CONFIG_RT_FIRST_IF_MT7612E is not set
 -# CONFIG_RT_FIRST_IF_MT7603E is not set
 -CONFIG_RT_FIRST_IF_MT7615E=y
+-# CONFIG_RT_FIRST_IF_MT7915 is not set
 -CONFIG_RT_FIRST_IF_RANGE_2GHZ=y
 -# CONFIG_RT_FIRST_IF_RANGE_5GHZ is not set
 -CONFIG_RT_FIRST_IF_EEPROM_FLASH=y
@@ -2041,6 +2042,7 @@ index 426ab02..0000000
 -# CONFIG_RT_SECOND_IF_MT7612E is not set
 -# CONFIG_RT_SECOND_IF_MT7603E is not set
 -CONFIG_RT_SECOND_IF_MT7615E=y
+-# CONFIG_RT_SECOND_IF_MT7915 is not set
 -# CONFIG_RT_SECOND_IF_RANGE_2GHZ is not set
 -CONFIG_RT_SECOND_IF_RANGE_5GHZ=y
 -CONFIG_RT_SECOND_IF_EEPROM_FLASH=y
@@ -2055,12 +2057,26 @@ index 426ab02..0000000
 -#
 -CONFIG_RT_THIRD_IF_NONE=y
 -# CONFIG_RT_THIRD_IF_MT7615E is not set
+-# CONFIG_RT_THIRD_IF_MT7915 is not set
 -CONFIG_RT_THIRD_CARD=0
 -
 -#
 -# Wireless drivers settings
 -#
 -CONFIG_WIFI_DRIVER=y
+-
+-#
+-# MT7615/MT7915 common configs
+-#
+-CONFIG_FIRST_IF_EPAELNA=y
+-# CONFIG_FIRST_IF_IPAILNA is not set
+-# CONFIG_FIRST_IF_IPAELNA is not set
+-CONFIG_SECOND_IF_EPAELNA=y
+-# CONFIG_SECOND_IF_IPAILNA is not set
+-# CONFIG_SECOND_IF_IPAELNA is not set
+-# CONFIG_WIFI_MODE_AP is not set
+-# CONFIG_WIFI_MODE_STA is not set
+-CONFIG_WIFI_MODE_BOTH=m
 -
 -#
 -# AP MODE MediaTek MT7615E PCIe Wireless driver
@@ -2109,21 +2125,12 @@ index 426ab02..0000000
 -# CONFIG_TCP_RACK_SUPPORT is not set
 -CONFIG_RED_SUPPORT=y
 -# CONFIG_FDB_SUPPORT is not set
--CONFIG_FIRST_IF_EPAELNA=y
--# CONFIG_FIRST_IF_IPAILNA is not set
--# CONFIG_FIRST_IF_IPAELNA is not set
--CONFIG_SECOND_IF_EPAELNA=y
--# CONFIG_SECOND_IF_IPAILNA is not set
--# CONFIG_SECOND_IF_IPAELNA is not set
 -# CONFIG_RLT_MAC is not set
 -# CONFIG_RTMP_MAC is not set
 -
 -#
 -# WiFi Operation Modes
 -#
--# CONFIG_WIFI_MODE_AP is not set
--# CONFIG_WIFI_MODE_STA is not set
--CONFIG_WIFI_MODE_BOTH=m
 -CONFIG_MT7615_AP=m
 -CONFIG_MT_AP_SUPPORT=m
 -CONFIG_WDS_SUPPORT=y
@@ -2136,7 +2143,7 @@ index 426ab02..0000000
 -CONFIG_MU_RA_SUPPORT=y
 -# CONFIG_DOT11R_FT_SUPPORT is not set
 -# CONFIG_DOT11K_RRM_SUPPORT is not set
--# CONFIG_INTERWORKING is not set
+-# CONFIG_MT_INTERWORKING is not set
 -# CONFIG_MAP_SUPPORT is not set
 -# CONFIG_OFFCHANNEL_SCAN_FEATURE is not set
 -# CONFIG_SNIFFER_SUPPORT is not set
@@ -2296,10 +2303,10 @@ index 0000000..dfdd5a9
 +BOARD_NUM_USB_PORTS=2
 diff --git a/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config b/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config
 new file mode 100644
-index 0000000..426ab02
+index 0000000..baf1b41
 --- /dev/null
 +++ b/trunk/configs/boards/NETGEAR/kernel-3.4.x-5.0.config
-@@ -0,0 +1,2127 @@
+@@ -0,0 +1,2134 @@
 +#
 +# Automatically generated file; DO NOT EDIT.
 +# Linux/mips 3.4.113 Kernel Configuration
@@ -4235,6 +4242,7 @@ index 0000000..426ab02
 +# CONFIG_RT_FIRST_IF_MT7612E is not set
 +# CONFIG_RT_FIRST_IF_MT7603E is not set
 +CONFIG_RT_FIRST_IF_MT7615E=y
++# CONFIG_RT_FIRST_IF_MT7915 is not set
 +CONFIG_RT_FIRST_IF_RANGE_2GHZ=y
 +# CONFIG_RT_FIRST_IF_RANGE_5GHZ is not set
 +CONFIG_RT_FIRST_IF_EEPROM_FLASH=y
@@ -4256,6 +4264,7 @@ index 0000000..426ab02
 +# CONFIG_RT_SECOND_IF_MT7612E is not set
 +# CONFIG_RT_SECOND_IF_MT7603E is not set
 +CONFIG_RT_SECOND_IF_MT7615E=y
++# CONFIG_RT_SECOND_IF_MT7915 is not set
 +# CONFIG_RT_SECOND_IF_RANGE_2GHZ is not set
 +CONFIG_RT_SECOND_IF_RANGE_5GHZ=y
 +CONFIG_RT_SECOND_IF_EEPROM_FLASH=y
@@ -4270,12 +4279,26 @@ index 0000000..426ab02
 +#
 +CONFIG_RT_THIRD_IF_NONE=y
 +# CONFIG_RT_THIRD_IF_MT7615E is not set
++# CONFIG_RT_THIRD_IF_MT7915 is not set
 +CONFIG_RT_THIRD_CARD=0
 +
 +#
 +# Wireless drivers settings
 +#
 +CONFIG_WIFI_DRIVER=y
++
++#
++# MT7615/MT7915 common configs
++#
++CONFIG_FIRST_IF_EPAELNA=y
++# CONFIG_FIRST_IF_IPAILNA is not set
++# CONFIG_FIRST_IF_IPAELNA is not set
++CONFIG_SECOND_IF_EPAELNA=y
++# CONFIG_SECOND_IF_IPAILNA is not set
++# CONFIG_SECOND_IF_IPAELNA is not set
++# CONFIG_WIFI_MODE_AP is not set
++# CONFIG_WIFI_MODE_STA is not set
++CONFIG_WIFI_MODE_BOTH=m
 +
 +#
 +# AP MODE MediaTek MT7615E PCIe Wireless driver
@@ -4324,21 +4347,12 @@ index 0000000..426ab02
 +# CONFIG_TCP_RACK_SUPPORT is not set
 +CONFIG_RED_SUPPORT=y
 +# CONFIG_FDB_SUPPORT is not set
-+CONFIG_FIRST_IF_EPAELNA=y
-+# CONFIG_FIRST_IF_IPAILNA is not set
-+# CONFIG_FIRST_IF_IPAELNA is not set
-+CONFIG_SECOND_IF_EPAELNA=y
-+# CONFIG_SECOND_IF_IPAILNA is not set
-+# CONFIG_SECOND_IF_IPAELNA is not set
 +# CONFIG_RLT_MAC is not set
 +# CONFIG_RTMP_MAC is not set
 +
 +#
 +# WiFi Operation Modes
 +#
-+# CONFIG_WIFI_MODE_AP is not set
-+# CONFIG_WIFI_MODE_STA is not set
-+CONFIG_WIFI_MODE_BOTH=m
 +CONFIG_MT7615_AP=m
 +CONFIG_MT_AP_SUPPORT=m
 +CONFIG_WDS_SUPPORT=y
@@ -4351,7 +4365,7 @@ index 0000000..426ab02
 +CONFIG_MU_RA_SUPPORT=y
 +# CONFIG_DOT11R_FT_SUPPORT is not set
 +# CONFIG_DOT11K_RRM_SUPPORT is not set
-+# CONFIG_INTERWORKING is not set
++# CONFIG_MT_INTERWORKING is not set
 +# CONFIG_MAP_SUPPORT is not set
 +# CONFIG_OFFCHANNEL_SCAN_FEATURE is not set
 +# CONFIG_SNIFFER_SUPPORT is not set
@@ -4459,10 +4473,10 @@ index 0000000..7e5d4aa
 +
 diff --git a/trunk/configs/templates/NETGEAR-BZV.config b/trunk/configs/templates/NETGEAR-BZV.config
 deleted file mode 100644
-index 350aa1f..0000000
+index 617c9d8..0000000
 --- a/trunk/configs/templates/NETGEAR-BZV.config
 +++ /dev/null
-@@ -1,264 +0,0 @@
+@@ -1,261 +0,0 @@
 -### Target Vendor/Product (support only Ralink RT3883/MT7620/MT7621/MT7628)
 -CONFIG_VENDOR=Ralink
 -CONFIG_PRODUCT=MT7621
@@ -4623,9 +4637,6 @@ index 350aa1f..0000000
 -### Include EAP-TTLS and EAP-PEAP authentication support. openssl ~1.2MB, wpa_supplicant +0.04MB
 -CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=y
 -
--### Include HTTPS support for DDNS client. openssl ~1.2MB
--CONFIG_FIRMWARE_INCLUDE_DDNS_SSL=y
--
 -### Include HTTPS support. openssl ~1.2MB
 -CONFIG_FIRMWARE_INCLUDE_HTTPS=y
 -
@@ -4729,10 +4740,10 @@ index 350aa1f..0000000
 -
 diff --git a/trunk/configs/templates/NETGEAR.config b/trunk/configs/templates/NETGEAR.config
 new file mode 100644
-index 0000000..da34ee5
+index 0000000..2978f25
 --- /dev/null
 +++ b/trunk/configs/templates/NETGEAR.config
-@@ -0,0 +1,264 @@
+@@ -0,0 +1,261 @@
 +### Target Vendor/Product (support only Ralink RT3883/MT7620/MT7621/MT7628)
 +CONFIG_VENDOR=Ralink
 +CONFIG_PRODUCT=MT7621
@@ -4892,9 +4903,6 @@ index 0000000..da34ee5
 +
 +### Include EAP-TTLS and EAP-PEAP authentication support. openssl ~1.2MB, wpa_supplicant +0.04MB
 +CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=y
-+
-+### Include HTTPS support for DDNS client. openssl ~1.2MB
-+CONFIG_FIRMWARE_INCLUDE_DDNS_SSL=y
 +
 +### Include HTTPS support. openssl ~1.2MB
 +CONFIG_FIRMWARE_INCLUDE_HTTPS=y
