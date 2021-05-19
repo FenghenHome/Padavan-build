@@ -1,6 +1,6 @@
-From 8b5892053ecb9706174aa9302d761cdd81066915 Mon Sep 17 00:00:00 2001
+From 1de0d547ffa691a000cddae32f77f55349bf05db Mon Sep 17 00:00:00 2001
 From: FenghenHome <s.sunfeihu@gmail.com>
-Date: Thu, 6 May 2021 17:39:13 +0800
+Date: Wed, 19 May 2021 21:50:48 +0800
 Subject: [PATCH] mod
 
 Signed-off-by: FenghenHome <s.sunfeihu@gmail.com>
@@ -29,7 +29,7 @@ Signed-off-by: FenghenHome <s.sunfeihu@gmail.com>
 
 diff --git a/trunk/configs/boards/NETGEAR-BZV/board.h b/trunk/configs/boards/NETGEAR-BZV/board.h
 deleted file mode 100644
-index 53223e5..0000000
+index ec7efbe..0000000
 --- a/trunk/configs/boards/NETGEAR-BZV/board.h
 +++ /dev/null
 @@ -1,32 +0,0 @@
@@ -45,26 +45,26 @@ index 53223e5..0000000
 -#define BOARD_FLASH_TIME	120
 -#define BOARD_GPIO_BTN_RESET	12
 -#define BOARD_GPIO_BTN_WPS	18
+-#define BOARD_GPIO_BTN_FN1	14
+-#define BOARD_GPIO_LED_WIFI	5
 -#undef  BOARD_GPIO_LED_ALL
--#define BOARD_GPIO_LED_WIFI	14
--#define BOARD_GPIO_LED_POWER	0	/* 0: orange, 1: white */
--#define BOARD_GPIO_LED_LAN	9	/* 0: orange, 1: white */
--#define BOARD_GPIO_LED_WAN	3	/* 0: orange, 1: white */
--#define BOARD_GPIO_LED_USB	7
+-#undef  BOARD_GPIO_LED_POWER
+-#undef  BOARD_GPIO_LED_LAN
+-#undef  BOARD_GPIO_LED_WAN
+-#undef  BOARD_GPIO_LED_USB
 -#undef  BOARD_GPIO_LED_ROUTER
--#undef  BOARD_GPIO_PWR_USB_ON	
--#undef  BOARD_GPIO_PWR_USB	
+-#undef  BOARD_GPIO_PWR_USB_ON
+-#undef  BOARD_GPIO_PWR_USB
 -#define BOARD_HAS_5G_11AC	1
 -#define BOARD_NUM_ANT_5G_TX	4
 -#define BOARD_NUM_ANT_5G_RX	4
 -#define BOARD_NUM_ANT_2G_TX	4
 -#define BOARD_NUM_ANT_2G_RX	4
--#define BOARD_NUM_ETH_LEDS	5
+-#define BOARD_NUM_ETH_LEDS	0
 -#define BOARD_NUM_ETH_EPHY	5
 -#define BOARD_HAS_EPHY_L1000	1
 -#define BOARD_HAS_EPHY_W1000	1
 -#define BOARD_NUM_UPHY_USB3	1
--
 diff --git a/trunk/configs/boards/NETGEAR-BZV/board.mk b/trunk/configs/boards/NETGEAR-BZV/board.mk
 deleted file mode 100644
 index bfb5a13..0000000
@@ -2251,7 +2251,7 @@ index 7e5d4aa..0000000
 -
 diff --git a/trunk/configs/boards/NETGEAR/board.h b/trunk/configs/boards/NETGEAR/board.h
 new file mode 100644
-index 0000000..d3bd906
+index 0000000..de12086
 --- /dev/null
 +++ b/trunk/configs/boards/NETGEAR/board.h
 @@ -0,0 +1,32 @@
@@ -2267,26 +2267,26 @@ index 0000000..d3bd906
 +#define BOARD_FLASH_TIME	120
 +#define BOARD_GPIO_BTN_RESET	12
 +#define BOARD_GPIO_BTN_WPS	18
++#define BOARD_GPIO_BTN_FN1	14
++#define BOARD_GPIO_LED_WIFI	5
 +#undef  BOARD_GPIO_LED_ALL
-+#define BOARD_GPIO_LED_WIFI	14
-+#define BOARD_GPIO_LED_POWER	0	/* 0: orange, 1: white */
-+#define BOARD_GPIO_LED_LAN	9	/* 0: orange, 1: white */
-+#define BOARD_GPIO_LED_WAN	3	/* 0: orange, 1: white */
-+#define BOARD_GPIO_LED_USB	7
++#undef  BOARD_GPIO_LED_POWER
++#undef  BOARD_GPIO_LED_LAN
++#undef  BOARD_GPIO_LED_WAN
++#undef  BOARD_GPIO_LED_USB
 +#undef  BOARD_GPIO_LED_ROUTER
-+#undef  BOARD_GPIO_PWR_USB_ON	
-+#undef  BOARD_GPIO_PWR_USB	
++#undef  BOARD_GPIO_PWR_USB_ON
++#undef  BOARD_GPIO_PWR_USB
 +#define BOARD_HAS_5G_11AC	1
 +#define BOARD_NUM_ANT_5G_TX	4
 +#define BOARD_NUM_ANT_5G_RX	4
 +#define BOARD_NUM_ANT_2G_TX	4
 +#define BOARD_NUM_ANT_2G_RX	4
-+#define BOARD_NUM_ETH_LEDS	5
++#define BOARD_NUM_ETH_LEDS	0
 +#define BOARD_NUM_ETH_EPHY	5
 +#define BOARD_HAS_EPHY_L1000	1
 +#define BOARD_HAS_EPHY_W1000	1
 +#define BOARD_NUM_UPHY_USB3	1
-+
 diff --git a/trunk/configs/boards/NETGEAR/board.mk b/trunk/configs/boards/NETGEAR/board.mk
 new file mode 100644
 index 0000000..dfdd5a9
